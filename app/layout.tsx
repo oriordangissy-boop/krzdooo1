@@ -3,12 +3,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://oriordangissy-boop.github.io/krzdooo1/"),
-  title: "材料＋解决方案｜材料模块、工艺路径与行业方案",
+  title: "材料＋解决方案｜功能材料、复合材料与成品方案",
   description:
-    "面向产业客户、品牌方与企业采购，提供标准材料与工艺模块、模块化升级和定制行业解决方案，支持材料选型、打样、资料与交付协同。",
+    "面向品牌、渠道与产业客户，提供功能膜与复合面料、聚酰亚胺轻暖材料、玄武岩纤维复合材料，以及对应的成品开发、打样与项目交付。",
   openGraph: {
-    title: "材料＋解决方案",
-    description: "标准材料 / 工艺模块 · 定制行业解决方案",
+    title: "功能材料与成品解决方案",
+    description: "功能膜 · PI轻暖材料 · 玄武岩纤维复合材料",
     type: "website",
     locale: "zh_CN",
     images: [
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "材料＋解决方案",
-    description: "标准材料 / 工艺模块 · 定制行业解决方案",
+    title: "功能材料与成品解决方案",
+    description: "功能膜 · PI轻暖材料 · 玄武岩纤维复合材料",
     images: ["https://oriordangissy-boop.github.io/krzdooo1/og.png"],
   },
 };
