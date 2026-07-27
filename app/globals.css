@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
   --ink: #071116;
@@ -14,8 +14,8 @@
   --mineral: #b9a77a;
   --white: #f8faf6;
   --muted: #718086;
-  --display: "Barlow Condensed", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  --body: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+  --display: "Barlow Condensed", "Inter", Arial, sans-serif;
+  --body: "Inter", Arial, sans-serif;
   --shell: min(1360px, calc(100vw - 80px));
 }
 
@@ -1218,6 +1218,12 @@ img {
   background: rgba(255, 255, 255, 0.055);
 }
 
+.form-intro {
+  margin: 0;
+  color: rgba(248, 250, 246, 0.66);
+  font-size: 13px;
+}
+
 .contact-form label {
   display: grid;
   gap: 9px;
@@ -1269,6 +1275,22 @@ img {
 .contact-form small {
   color: rgba(248, 250, 246, 0.38);
   font-size: 11px;
+}
+
+.contact-form small a,
+.form-next-step a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-next-step {
+  margin: 0;
+  padding: 14px 16px;
+  color: var(--white);
+  border: 1px solid rgba(110, 224, 216, 0.42);
+  background: rgba(110, 224, 216, 0.08);
+  font-size: 13px;
 }
 
 .site-footer {

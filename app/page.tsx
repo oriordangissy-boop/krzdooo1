@@ -4,21 +4,21 @@ import { FormEvent, useState } from "react";
 
 const audienceEntries = [
   {
-    label: "品牌 / 企业采购",
-    title: "找可落地的材料、成品与定制方案",
-    copy: "从材料小样、功能服装到批量项目，先看实物，再确认规格与报价。",
+    label: "Brand & Corporate Procurement",
+    title: "Source materials, samples, and product-development support",
+    copy: "Start with a sample kit, a target product, or a volume requirement. We will help define the next practical step.",
     href: "#materials",
   },
   {
-    label: "渠道 / 代理合作",
-    title: "获取产品资料、样品与合作支持",
-    copy: "按客户方向组合资料包与样品箱，支持项目沟通、报价和交付跟进。",
+    label: "Distributors & Channel Partners",
+    title: "Build a sales-ready material and sample package",
+    copy: "Request product information, samples, and project coordination for qualified customer opportunities.",
     href: "#support",
   },
   {
-    label: "产业项目",
-    title: "围绕性能、结构与场景共同打样",
-    copy: "把使用环境、结构约束和交付要求转成材料选择与样品路径。",
+    label: "Engineering & Project Buyers",
+    title: "Develop a sample around your operating conditions",
+    copy: "Share the application, form factor, quantity, timeline, and documentation needs. We will align the material route and sampling plan.",
     href: "#solutions",
   },
 ] as const;
@@ -26,72 +26,102 @@ const audienceEntries = [
 const materialCards = [
   {
     code: "MEMBRANE",
-    title: "功能膜与复合面料",
-    summary: "面向功能服装与轻量装备的外层、膜层和基布组合方向。",
-    canDo: "材料选型、复合结构讨论、面料小样与成品打样协同",
-    projects: ["功能外层", "户外服装", "轻量装备"],
+    title: "Performance membranes and laminated textiles",
+    summary:
+      "Layered material options for functional apparel and lightweight equipment, including outer fabrics, membrane layers, and textile substrates.",
+    canDo:
+      "Material selection, laminate-structure review, swatches, and product sampling coordination",
+    projects: ["Functional outer layers", "Outdoor apparel", "Lightweight equipment"],
     sample:
-      "告诉我们使用环境、数量与时间计划，先确认可提供的小样、结构资料和打样方式。",
+      "Share the end use, target quantity, and timing. We will confirm available swatches, structure information, and the sampling route.",
     visual: "layers",
   },
   {
     code: "PI",
-    title: "聚酰亚胺轻暖材料",
-    summary: "现有材料形态覆盖纤维、纱线、织物、无纺与絮片方向。",
-    canDo: "服装内层、中间层、填充结构与功能纺织品打样",
-    projects: ["轻暖服装", "功能纺织", "内层系统"],
+    title: "Polyimide (PI) lightweight thermal materials",
+    summary:
+      "Available material forms include fiber, yarn, woven and nonwoven textiles, and thermal batting.",
+    canDo:
+      "Sampling for apparel liners, mid-layers, insulation structures, and functional textiles",
+    projects: ["Lightweight thermal apparel", "Functional textiles", "Lining systems"],
     sample:
-      "可从材料形态或目标成品切入，确认小样、样品结构与项目文件。",
+      "Start from a material form or a target product. We will confirm available samples, the proposed construction, and required project information.",
     visual: "pi",
   },
   {
     code: "BASALT",
-    title: "玄武岩纤维复合材料",
-    summary: "现有材料形态覆盖原丝、织物、毡、预浸料与复合制品方向。",
-    canDo: "结构材料选型、复合构件讨论、工程制品与应用样品协同",
-    projects: ["结构部件", "建筑市政", "交通与海洋"],
+    title: "Basalt-fiber composites",
+    summary:
+      "Material forms include continuous fiber, woven fabrics, mats, prepreg, and composite products.",
+    canDo:
+      "Material-form review, composite-component discussion, and coordination for engineering samples",
+    projects: ["Structural components", "Construction & infrastructure", "Transport & marine"],
     sample:
-      "按载体、尺寸、工况与文件要求确认材料形态、样品和后续验证安排。",
+      "Share the part or carrier, dimensions, operating conditions, quantity, and documentation needs. We will confirm the relevant material form and sample path.",
     visual: "basalt",
   },
 ] as const;
 
 const solutions = [
   {
-    kicker: "成品解决方案",
-    title: "功能服装材料系统",
-    copy: "围绕外层功能膜、复合面料与 PI 轻暖材料，组合服装外层、中间层和填充结构，形成可看样、可调整的成品方向。",
-    tags: ["功能外层", "PI 中间层", "结构打样"],
+    kicker: "PRODUCT DEVELOPMENT",
+    title: "Apparel material system development",
+    copy: "Combine performance membranes, laminated textiles, and PI lightweight thermal materials across outer layers, mid-layers, and insulation structures. The result is a reviewable sample direction that can be adjusted before commercial planning.",
+    tags: ["Performance outer layer", "PI thermal layer", "Construction sampling"],
     visual: "apparel",
   },
   {
-    kicker: "复合材料方案",
-    title: "结构与工程制品",
-    copy: "从玄武岩纤维织物、毡和预浸料等材料形态出发，结合板材、管道、格栅与部件载体讨论样品路径。",
-    tags: ["板材 / 管道", "格栅 / 构件", "复合部件"],
+    kicker: "COMPOSITE DEVELOPMENT",
+    title: "Composite structures and engineering samples",
+    copy: "Start with basalt-fiber fabrics, mats, prepreg, or other available material forms, then define a sampling route for panels, pipes, grids, or composite components.",
+    tags: ["Panels & pipes", "Grids & structures", "Composite components"],
     visual: "engineering",
   },
   {
-    kicker: "产业项目方案",
-    title: "按使用场景共同打样",
-    copy: "面向交通、低空、建筑、市政、海洋与运动载体，先明确环境与结构约束，再安排材料、工艺和样品协同。",
-    tags: ["场景诊断", "材料组合", "项目交付"],
+    kicker: "PROJECT SAMPLING",
+    title: "Application-led project sampling",
+    copy: "For transport, low-altitude aviation, construction, infrastructure, marine, and sports equipment, we first document the operating environment and structural constraints, then coordinate materials and samples.",
+    tags: ["Application review", "Material route", "Project follow-through"],
     visual: "applications",
   },
 ] as const;
 
 const supportItems = [
-  ["材料资料", "按材料方向提供可公开的形态、应用与项目沟通资料。"],
-  ["样品支持", "根据采购、渠道或产业项目需求确认材料小样与样品箱。"],
-  ["打样协同", "围绕结构、尺寸、场景与交付要求推进样品确认。"],
-  ["批量报价", "在规格、数量与交付范围明确后提供项目报价。"],
+  [
+    "Product information",
+    "Available material forms, application references, and project information suitable for external review.",
+  ],
+  [
+    "Sample support",
+    "Material swatches and sample-kit options matched to procurement, channel, or engineering requirements.",
+  ],
+  [
+    "Development sampling",
+    "Sample coordination around structure, dimensions, end use, and delivery requirements.",
+  ],
+  [
+    "Volume quote",
+    "A project quotation after specifications, quantity, scope, and delivery requirements are confirmed.",
+  ],
 ] as const;
 
 const process = [
-  ["提交需求", "说明使用场景、材料方向、数量和时间计划。"],
-  ["确认样品", "匹配材料形态、资料与可执行的拿样方式。"],
-  ["打样报价", "需要定制时确认结构、样品与项目报价。"],
-  ["交付跟进", "围绕文件、供应、反馈与批量交付持续推进。"],
+  [
+    "Send a project brief",
+    "Share the end use, material direction, quantity, target market, and timeline.",
+  ],
+  [
+    "Confirm the sample route",
+    "We match the relevant material form, information, and available sampling path.",
+  ],
+  [
+    "Review sample and quote",
+    "For development work, confirm the construction, sample scope, and commercial quotation.",
+  ],
+  [
+    "Plan delivery",
+    "Coordinate documents, supply, feedback, and volume-delivery requirements.",
+  ],
 ] as const;
 
 export default function Home() {
@@ -105,30 +135,30 @@ export default function Home() {
   return (
     <main id="top">
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="材料加解决方案首页">
+        <a className="brand" href="#top" aria-label="Materials and Solutions home">
           <span className="brand-mark">M+</span>
           <span className="brand-copy">
-            <strong>材料＋解决方案</strong>
-            <small>MATERIALS × SOLUTIONS</small>
+            <strong>Materials + Solutions</strong>
+            <small>FUNCTIONAL + COMPOSITE MATERIALS</small>
           </span>
         </a>
-        <nav className="desktop-nav" aria-label="主导航">
-          <a href="#materials">材料产品</a>
-          <a href="#audiences">适用客户</a>
-          <a href="#solutions">成品方案</a>
-          <a href="#support">合作支持</a>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          <a href="#materials">Materials</a>
+          <a href="#audiences">For Buyers</a>
+          <a href="#solutions">Development</a>
+          <a href="#support">Sample Support</a>
         </nav>
         <a className="header-cta" href="#contact">
-          联系 BD
+          Contact Sales
         </a>
         <details className="mobile-nav">
-          <summary aria-label="打开导航">菜单</summary>
-          <nav aria-label="移动端导航">
-            <a href="#materials">材料产品</a>
-            <a href="#audiences">适用客户</a>
-            <a href="#solutions">成品方案</a>
-            <a href="#support">合作支持</a>
-            <a href="#contact">联系 BD</a>
+          <summary aria-label="Open navigation menu">Menu</summary>
+          <nav aria-label="Mobile navigation">
+            <a href="#materials">Materials</a>
+            <a href="#audiences">For Buyers</a>
+            <a href="#solutions">Development</a>
+            <a href="#support">Sample Support</a>
+            <a href="#contact">Contact Sales</a>
           </nav>
         </details>
       </header>
@@ -138,41 +168,46 @@ export default function Home() {
         <div className="hero-inner shell">
           <div className="hero-copy">
             <p className="eyebrow light">FUNCTIONAL & COMPOSITE MATERIALS</p>
-            <h1 id="hero-title">功能材料与成品解决方案，从样品到项目交付</h1>
+            <h1 id="hero-title">
+              Materials, product development, and sampling support
+            </h1>
             <p className="hero-lede">
-              为品牌、渠道与产业客户提供功能膜与复合面料、聚酰亚胺轻暖材料、玄武岩纤维复合材料，以及对应的成品开发与行业应用方案。
+              We supply performance membranes and laminated textiles, polyimide (PI)
+              lightweight thermal materials, and basalt-fiber composites for brands,
+              distributors, and engineering project buyers. Start with a sample kit
+              or send us a project brief.
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#support">
-                预约样品箱
+                Request a Sample Kit
               </a>
               <a className="button button-ghost" href="#contact">
-                提交定制需求
+                Send Project Brief
               </a>
             </div>
-            <ul className="hero-deliverables" aria-label="可提供内容">
+            <ul className="hero-deliverables" aria-label="Available support">
               <li>
                 <span>01</span>
-                材料小样
+                Material swatches
               </li>
               <li>
                 <span>02</span>
-                结构打样
+                Structure samples
               </li>
               <li>
                 <span>03</span>
-                成品方案
+                Product development
               </li>
               <li>
                 <span>04</span>
-                批量交付
+                Volume delivery
               </li>
             </ul>
           </div>
 
-          <div className="specimen-rack" aria-label="现有材料与应用视觉">
+          <div className="specimen-rack" aria-label="Available material families">
             <div className="rack-head">
-              <span>现有材料入口</span>
+              <span>Available materials</span>
               <b>3 MATERIAL FAMILIES</b>
             </div>
             <div className="specimen specimen-membrane">
@@ -182,8 +217,8 @@ export default function Home() {
                 <i />
               </div>
               <div>
-                <span>功能膜 / 复合面料</span>
-                <small>外层 · 膜层 · 基布</small>
+                <span>Performance membranes</span>
+                <small>Outer textile · Membrane · Substrate</small>
               </div>
             </div>
             <div className="specimen specimen-pi">
@@ -195,8 +230,8 @@ export default function Home() {
                 />
               </div>
               <div>
-                <span>PI 轻暖材料</span>
-                <small>纤维 · 织物 · 絮片</small>
+                <span>PI lightweight thermal materials</span>
+                <small>Fiber · Textile · Batting</small>
               </div>
             </div>
             <div className="specimen specimen-basalt">
@@ -208,16 +243,16 @@ export default function Home() {
                 />
               </div>
               <div>
-                <span>玄武岩纤维复合材料</span>
-                <small>原丝 · 织物 · 复合制品</small>
+                <span>Basalt-fiber composites</span>
+                <small>Fiber · Fabric · Composite products</small>
               </div>
             </div>
             <div className="rack-foot">
-              <span>材料</span>
+              <span>Material</span>
               <i />
-              <span>样品</span>
+              <span>Sample</span>
               <i />
-              <span>项目</span>
+              <span>Project</span>
             </div>
           </div>
         </div>
@@ -230,7 +265,7 @@ export default function Home() {
               <span>{item.label}</span>
               <h2>{item.title}</h2>
               <p>{item.copy}</p>
-              <b>查看合作入口 →</b>
+              <b>Explore this route →</b>
             </a>
           ))}
         </div>
@@ -240,11 +275,13 @@ export default function Home() {
         <div className="section-shell">
           <div className="section-heading">
             <div>
-              <p className="section-label">三类可提供内容</p>
-              <h2>材料、用途和拿样方式，一次看清</h2>
+              <p className="section-label">THREE MATERIAL FAMILIES</p>
+              <h2>Compare available materials and start with the right sample</h2>
             </div>
             <p>
-              可从材料小样开始，也可以直接带着成品或产业项目需求沟通。具体型号、参数与适用标准在项目确认时核对。
+              Start with swatches, or bring us a target product or application.
+              Specific grades, performance data, standards, and supply terms are
+              confirmed for each project.
             </p>
           </div>
 
@@ -274,11 +311,11 @@ export default function Home() {
                   <p className="material-summary">{item.summary}</p>
                   <dl>
                     <div>
-                      <dt>能做什么</dt>
+                      <dt>What we support</dt>
                       <dd>{item.canDo}</dd>
                     </div>
                     <div>
-                      <dt>适合项目</dt>
+                      <dt>Typical projects</dt>
                       <dd>
                         {item.projects.map((project) => (
                           <span key={project}>{project}</span>
@@ -286,12 +323,12 @@ export default function Home() {
                       </dd>
                     </div>
                     <div>
-                      <dt>如何拿样</dt>
+                      <dt>How to request samples</dt>
                       <dd>{item.sample}</dd>
                     </div>
                   </dl>
                   <a className="text-link" href="#contact">
-                    预约样品箱 <span>→</span>
+                    Request a Sample Kit <span>→</span>
                   </a>
                 </div>
               </article>
@@ -303,17 +340,19 @@ export default function Home() {
       <section className="support-section" id="support">
         <div className="section-shell support-grid">
           <div className="support-intro">
-            <p className="section-label">拿样与合作支持</p>
-            <h2>先把真实材料和样品拿到手</h2>
+            <p className="section-label">SAMPLES & COMMERCIAL SUPPORT</p>
+            <h2>Get the samples and information needed for your next decision</h2>
             <p>
-              品牌采购可看材料与成品方向，渠道伙伴可申请资料与样品支持，产业项目可按使用场景进入共同打样。
+              Procurement teams can review material and product directions. Channel
+              partners can request sales information and sample support. Engineering
+              buyers can start from an application and sampling requirement.
             </p>
             <div className="support-actions">
               <a className="button button-primary" href="#contact">
-                预约样品箱
+                Request a Sample Kit
               </a>
               <a className="button button-dark" href="#contact">
-                获取批量报价
+                Request a Volume Quote
               </a>
             </div>
           </div>
@@ -335,11 +374,12 @@ export default function Home() {
         <div className="section-shell">
           <div className="section-heading light-heading">
             <div>
-              <p className="section-label">代表解决方案</p>
-              <h2>从材料形态，做到客户看得见的样品</h2>
+              <p className="section-label">DEVELOPMENT DIRECTIONS</p>
+              <h2>Move from material form to a reviewable sample</h2>
             </div>
             <p>
-              下面展示的是当前可讨论、可进入打样的方向，不是固定规格现货。项目从真实需求和样品确认开始。
+              These are development directions available for project discussion and
+              sampling. They are not listed as fixed, ready-stock specifications.
             </p>
           </div>
           <div className="solution-stack">
@@ -369,7 +409,7 @@ export default function Home() {
                     ))}
                   </ul>
                   <a href="#contact">
-                    提交定制需求 <b>→</b>
+                    Discuss a Custom Project <b>→</b>
                   </a>
                 </div>
               </article>
@@ -381,27 +421,29 @@ export default function Home() {
       <section className="cooperation-section">
         <div className="section-shell cooperation-grid">
           <div className="cooperation-copy">
-            <p className="section-label">三种合作方式</p>
-            <h2>采购、代理或产业项目，都有明确入口</h2>
+            <p className="section-label">THREE BUYING ROUTES</p>
+            <h2>Choose the route that matches your buying role</h2>
             <p>
-              不需要先理解复杂材料体系。告诉我们客户类型和当前任务，我们会从样品、资料、报价或共同打样中安排下一步。
+              Tell us whether you are sourcing for a brand, building a channel
+              opportunity, or developing an engineering application. We will respond
+              with the relevant information, sample route, or quotation requirements.
             </p>
           </div>
           <div className="cooperation-cards">
             <article>
-              <span>品牌企业采购</span>
-              <p>材料小样、成品方向、定制需求与批量报价。</p>
-              <a href="#contact">预约样品箱 →</a>
+              <span>Brand & Corporate Procurement</span>
+              <p>Material swatches, product direction, custom development, and volume quotes.</p>
+              <a href="#contact">Request a Sample Kit →</a>
             </article>
             <article>
-              <span>渠道代理合作</span>
-              <p>产品资料、样品支持、项目沟通与渠道合作。</p>
-              <a href="#contact">联系 BD →</a>
+              <span>Distributor & Channel Partnership</span>
+              <p>Product information, sample support, opportunity review, and channel coordination.</p>
+              <a href="#contact">Contact Sales →</a>
             </article>
             <article>
-              <span>产业项目共创</span>
-              <p>围绕场景、结构与交付要求共同定义样品。</p>
-              <a href="#contact">提交定制需求 →</a>
+              <span>Engineering & Project Development</span>
+              <p>Sample definition based on the application, form factor, and delivery requirements.</p>
+              <a href="#contact">Send Project Brief →</a>
             </article>
           </div>
         </div>
@@ -410,8 +452,8 @@ export default function Home() {
       <section className="process-section">
         <div className="section-shell">
           <div className="process-title">
-            <p className="section-label">合作流程</p>
-            <h2>四步进入项目</h2>
+            <p className="section-label">WORKING PROCESS</p>
+            <h2>Four steps from brief to delivery planning</h2>
           </div>
           <ol className="process-list">
             {process.map(([title, copy], index) => (
@@ -428,17 +470,20 @@ export default function Home() {
       <section className="company-section">
         <div className="section-shell company-grid">
           <div className="company-statement">
-            <p className="section-label">项目服务</p>
-            <h2>让材料、样品和交付接得起来</h2>
+            <p className="section-label">PROJECT SUPPORT</p>
+            <h2>Materials, sampling, and project follow-through in one workflow</h2>
           </div>
           <div className="company-copy">
             <p>
-              围绕品牌、渠道与产业客户需求，提供材料选型、规格沟通、样品对接、资料整理、检测协同、供应协调和交付跟进。
+              We support material selection, specification discussion, sample
+              coordination, document preparation, test coordination, supply
+              coordination, and delivery follow-up for brand, channel, and
+              engineering customers.
             </p>
             <ul>
-              <li>深圳主体 · 东莞服务</li>
-              <li>材料小样 · 成品打样</li>
-              <li>项目报价 · 交付跟进</li>
+              <li>Shenzhen company · Dongguan service base</li>
+              <li>Material swatches · Product sampling</li>
+              <li>Project quotes · Delivery follow-up</li>
             </ul>
           </div>
         </div>
@@ -447,79 +492,96 @@ export default function Home() {
       <section className="contact-section" id="contact">
         <div className="section-shell contact-grid">
           <div className="contact-copy">
-            <p className="eyebrow light">START WITH A REAL REQUIREMENT</p>
-            <h2>告诉我们要做什么，先安排资料和样品</h2>
+            <p className="eyebrow light">START WITH A SPECIFIC REQUIREMENT</p>
+            <h2>Tell us what you are sourcing</h2>
             <p>
-              请说明客户类型、材料或成品方向、预计数量与时间计划。我们会判断从样品箱、批量报价还是共同打样开始。
+              Share your buyer type, target material or product, expected quantity,
+              destination market, and timeline. We will respond with the relevant
+              sample route, quotation requirements, or development questions.
             </p>
             <div className="contact-actions">
               <a className="button button-ghost" href="tel:+8613712670275">
-                联系 BD
+                Call Business Development
               </a>
               <a className="button button-ghost" href="mailto:540148510@qq.com">
-                获取批量报价
+                Email Project Brief
               </a>
             </div>
             <div className="contact-details">
-              <strong>深圳市看人之大科技有限公司</strong>
-              <a href="tel:+8613712670275">137 1267 0275</a>
-              <a href="tel:+8613549376386">135 4937 6386</a>
+              <strong>Shenzhen Kanrenzhida Technology Co., Ltd.</strong>
+              <a href="tel:+8613712670275">+86 137 1267 0275</a>
+              <a href="tel:+8613549376386">+86 135 4937 6386</a>
               <a href="mailto:540148510@qq.com">540148510@qq.com</a>
               <p>
-                广东省东莞市东城街道莞长路东城段143号6栋兴华智慧城1101、1102室
+                Rooms 1101–1102, Building 6, Xinghua Smart City, No. 143,
+                Dongcheng Section, Guanchang Road, Dongcheng Subdistrict,
+                Dongguan, Guangdong, China
               </p>
             </div>
           </div>
           <form className="contact-form" onSubmit={submitForm}>
+            <p className="form-intro full">
+              Use this worksheet to organize your brief. It does not transmit or
+              store data.
+            </p>
             <label>
-              姓名
-              <input name="name" required placeholder="怎么称呼您" />
+              Name
+              <input name="name" required placeholder="Your name" />
             </label>
             <label>
-              公司 / 机构
-              <input name="company" placeholder="您的公司或机构" />
+              Company / Organization
+              <input name="company" placeholder="Company or organization" />
             </label>
             <label>
-              联系电话
+              Phone
               <input
                 name="phone"
                 required
                 inputMode="tel"
-                placeholder="方便联系的号码"
+                placeholder="Country code and number"
               />
             </label>
             <label>
-              客户类型
+              Buyer Type
               <select name="customer" defaultValue="brand">
-                <option value="brand">品牌 / 企业采购</option>
-                <option value="channel">渠道 / 代理合作</option>
-                <option value="industry">产业项目</option>
-                <option value="unsure">暂不确定，请协助判断</option>
+                <option value="brand">Brand / Corporate Procurement</option>
+                <option value="channel">Distributor / Channel Partner</option>
+                <option value="industry">Engineering / Project Buyer</option>
+                <option value="unsure">Not sure — please advise</option>
               </select>
             </label>
             <label className="full">
-              材料或成品方向
+              Material or Product Direction
               <select name="direction" defaultValue="membrane">
-                <option value="membrane">功能膜与复合面料</option>
-                <option value="pi">聚酰亚胺轻暖材料</option>
-                <option value="basalt">玄武岩纤维复合材料</option>
-                <option value="finished">成品解决方案</option>
-                <option value="other">其他产业应用</option>
+                <option value="membrane">Performance membranes and laminated textiles</option>
+                <option value="pi">Polyimide (PI) lightweight thermal materials</option>
+                <option value="basalt">Basalt-fiber composites</option>
+                <option value="development">Product development and sampling</option>
+                <option value="other">Other industrial application</option>
               </select>
             </label>
             <label className="full">
-              项目需求
+              Project Brief
               <textarea
                 name="message"
                 rows={5}
-                placeholder="使用场景、数量、时间计划，以及希望先看什么样品"
+                placeholder="End use, quantity, destination market, timeline, and the sample or information you need"
               />
             </label>
             <button className="button button-primary full" type="submit">
-              {sent ? "请通过电话或邮箱联系 BD" : "提交定制需求"}
+              Show How to Send This Brief
             </button>
+            {sent && (
+              <p className="form-next-step full" role="status">
+                Your details have not been sent. Email your brief to{" "}
+                <a href="mailto:540148510@qq.com">540148510@qq.com</a> or call{" "}
+                <a href="tel:+8613712670275">+86 137 1267 0275</a>.
+              </p>
+            )}
             <small className="full">
-              当前为前端需求表单演示，不会自动发送或保存信息。
+              This worksheet does not transmit or store data. To start a project,{" "}
+              <a href="mailto:540148510@qq.com">email the project brief</a> or{" "}
+              <a href="tel:+8613712670275">call Business Development</a>.
             </small>
           </form>
         </div>
@@ -530,21 +592,23 @@ export default function Home() {
           <div className="footer-brand">
             <span className="brand-mark">M+</span>
             <div>
-              <strong>材料＋解决方案</strong>
-              <p>功能材料 · 复合材料 · 成品解决方案</p>
+              <strong>Materials + Solutions</strong>
+              <p>Functional materials · Composite materials · Product development</p>
             </div>
           </div>
           <div className="footer-links">
-            <a href="#materials">材料产品</a>
-            <a href="#solutions">代表方案</a>
-            <a href="#support">拿样支持</a>
-            <a href="#contact">联系 BD</a>
+            <a href="#materials">Materials</a>
+            <a href="#solutions">Development</a>
+            <a href="#support">Sample Support</a>
+            <a href="#contact">Contact Sales</a>
           </div>
         </div>
         <div className="section-shell footer-legal">
-          <span>© 2026 深圳市看人之大科技有限公司</span>
+          <span>© 2026 Shenzhen Kanrenzhida Technology Co., Ltd.</span>
           <span>
-            材料参数、检测结论、适用标准与供应责任以具体项目确认文件为准。
+            Material specifications, test results, applicable standards, supply
+            responsibilities, and commercial terms are subject to project-specific
+            confirmation documents.
           </span>
         </div>
       </footer>
