@@ -43,7 +43,11 @@ const materialCards = [
       "Available material forms include fiber, yarn, woven and nonwoven textiles, and thermal batting.",
     canDo:
       "Sampling for apparel liners, mid-layers, insulation structures, and functional textiles",
-    projects: ["Lightweight thermal apparel", "Functional textiles", "Lining systems"],
+    projects: [
+      "Premium technical outerwear",
+      "Luxury performance apparel",
+      "Refined lining systems",
+    ],
     sample:
       "Start from a material form or a target product. We will confirm available samples, the proposed construction, and required project information.",
     visual: "pi",
@@ -64,24 +68,24 @@ const materialCards = [
 
 const solutions = [
   {
-    kicker: "PRODUCT DEVELOPMENT",
-    title: "Apparel material system development",
-    copy: "Combine performance membranes, laminated textiles, and PI lightweight thermal materials across outer layers, mid-layers, and insulation structures. The result is a reviewable sample direction that can be adjusted before commercial planning.",
-    tags: ["Performance outer layer", "PI thermal layer", "Construction sampling"],
+    kicker: "PREMIUM PRODUCT DEVELOPMENT",
+    title: "Premium technical apparel systems",
+    copy: "Combine performance membranes, laminated textiles, and PI lightweight thermal materials across refined outer layers, mid-layers, and insulation structures. Develop a reviewable sample direction for premium travel, lifestyle, and performance collections before commercial planning.",
+    tags: ["Refined outer layer", "PI thermal layer", "Garment sampling"],
     visual: "apparel",
   },
   {
     kicker: "COMPOSITE DEVELOPMENT",
-    title: "Composite structures and engineering samples",
-    copy: "Start with basalt-fiber fabrics, mats, prepreg, or other available material forms, then define a sampling route for panels, pipes, grids, or composite components.",
-    tags: ["Panels & pipes", "Grids & structures", "Composite components"],
+    title: "Precision composite structures and samples",
+    copy: "Start with basalt-fiber fabrics, mats, prepreg, or other available material forms, then define a sampling route for refined panels, structural shells, grids, or precision composite components.",
+    tags: ["Refined panels", "Structural shells", "Precision components"],
     visual: "engineering",
   },
   {
     kicker: "PROJECT SAMPLING",
-    title: "Application-led project sampling",
-    copy: "For transport, low-altitude aviation, construction, infrastructure, marine, and sports equipment, we first document the operating environment and structural constraints, then coordinate materials and samples.",
-    tags: ["Application review", "Material route", "Project follow-through"],
+    title: "Application-led development for premium products",
+    copy: "For premium mobility, marine, architectural, advanced air mobility, and performance-equipment projects, we first document the operating environment and structural constraints, then coordinate materials and samples.",
+    tags: ["Premium applications", "Material route", "Project follow-through"],
     visual: "applications",
   },
 ] as const;
@@ -224,9 +228,10 @@ export default function Home() {
             <div className="specimen specimen-pi">
               <div className="source-frame source-pi" aria-hidden="true">
                 <img
-                  src="materials/pi-apparel-source.jpg"
+                  src="materials/pi-premium-apparel-v2.webp"
                   alt=""
                   loading="eager"
+                  decoding="async"
                 />
               </div>
               <div>
@@ -237,9 +242,10 @@ export default function Home() {
             <div className="specimen specimen-basalt">
               <div className="source-frame source-basalt" aria-hidden="true">
                 <img
-                  src="materials/basalt-forms-source.jpg"
+                  src="materials/basalt-material-studio-v2.webp"
                   alt=""
                   loading="eager"
+                  decoding="async"
                 />
               </div>
               <div>
@@ -298,10 +304,20 @@ export default function Home() {
                     </div>
                   )}
                   {item.visual === "pi" && (
-                    <img src="materials/pi-apparel-source.jpg" alt="" />
+                    <img
+                      src="materials/pi-premium-apparel-v2.webp"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
                   )}
                   {item.visual === "basalt" && (
-                    <img src="materials/basalt-forms-source.jpg" alt="" />
+                    <img
+                      src="materials/basalt-material-studio-v2.webp"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
                   )}
                   <span>{item.code}</span>
                 </div>
@@ -387,13 +403,28 @@ export default function Home() {
               <article className={`solution-card ${item.visual}`} key={item.title}>
                 <div className="solution-media" aria-hidden="true">
                   {item.visual === "apparel" && (
-                    <img src="materials/pi-apparel-source.jpg" alt="" />
+                    <img
+                      src="materials/pi-premium-apparel-v2.webp"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
                   )}
                   {item.visual === "engineering" && (
-                    <img src="materials/basalt-forms-source.jpg" alt="" />
+                    <img
+                      src="materials/basalt-material-studio-v2.webp"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
                   )}
                   {item.visual === "applications" && (
-                    <img src="materials/basalt-applications-source.jpg" alt="" />
+                    <img
+                      src="materials/basalt-premium-applications-v2.webp"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
                   )}
                 </div>
                 <div className="solution-copy">

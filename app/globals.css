@@ -462,19 +462,19 @@ img {
 
 .source-frame img {
   position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   max-width: none;
+  object-fit: cover;
 }
 
 .source-pi img {
-  width: 250%;
-  top: -118px;
-  right: -22%;
+  object-position: 60% 38%;
 }
 
 .source-basalt img {
-  width: 212%;
-  top: -49%;
-  left: -2%;
+  object-position: 50% 62%;
 }
 
 .rack-foot {
@@ -637,20 +637,20 @@ img {
 
 .material-visual > img {
   position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   max-width: none;
+  object-fit: cover;
   filter: saturate(0.84) contrast(1.03);
 }
 
 .material-card.pi .material-visual img {
-  width: 190%;
-  top: -145px;
-  right: -17%;
+  object-position: 58% 38%;
 }
 
 .material-card.basalt .material-visual img {
-  width: 212%;
-  top: -130px;
-  left: 0;
+  object-position: 50% 62%;
 }
 
 .material-visual > span {
@@ -908,26 +908,24 @@ img {
 
 .solution-media img {
   position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   max-width: none;
+  object-fit: cover;
   filter: saturate(0.78) contrast(1.05);
 }
 
 .solution-card.apparel .solution-media img {
-  width: 165%;
-  top: -170px;
-  right: -4%;
+  object-position: 58% 42%;
 }
 
 .solution-card.engineering .solution-media img {
-  width: 205%;
-  top: -160px;
-  left: 0;
+  object-position: 50% 58%;
 }
 
 .solution-card.applications .solution-media img {
-  width: 145%;
-  top: -19%;
-  right: -4%;
+  object-position: center;
 }
 
 .solution-copy {
