@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oriordangissy-boop.github.io/krzdooo1/"),
+  metadataBase: new URL("https://krzd.io/"),
   title:
     "Functional & Composite Materials | Product Development and Sampling Support",
   description:
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://oriordangissy-boop.github.io/krzdooo1/og.png",
+        url: "https://krzd.io/og.png",
         width: 1731,
         height: 909,
         alt: "Functional and composite materials with product development and sampling support",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Functional & Composite Materials",
     description: "Product development and sampling support for international B2B buyers.",
-    images: ["https://oriordangissy-boop.github.io/krzdooo1/og.png"],
+    images: ["https://krzd.io/og.png"],
   },
 };
 
